@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './Registration.css';
-import Login from './Login';
+import Form from 'react-bootstrap/Form';
 import { Alert } from 'bootstrap';
 
-
-const Registration = () => {
+const AddTask = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [profession, setProfession] = useState("");
   const [flag, setFlag] = useState(false);
   const [login, setLogin] = useState(true);
   
@@ -33,24 +33,21 @@ const Registration = () => {
   }
   return (
     <div>
-      <div >
-          {" "}
-          {login ? (
-            <form className='shadow-lg p-5 rounded' onSubmit={handleFormSubmit}>
+       <form id='bg' onSubmit={handleFormSubmit}>
               <h3>Register</h3>
 
-              <div className="form-group text-start">
+              <div className="form-group">
                 <label>Name</label>
                 <input
                   type="text"
-                  className="form-control required"
+                  className="form-control"
                   placeholder="Enter Full Name"
                   name="name"
                   onChange={(event) => setName(event.target.value)}
                 />
               </div>
 
-              <div className="form-group mt-3 text-start">
+              <div className="form-group">
                 <label>Email</label>
                 <input
                   type="email"
@@ -60,20 +57,44 @@ const Registration = () => {
                 />
               </div>
 
-              <div className="form-group mt-3 text-start">
+              <div className="form-group">
                 <label>Password</label>
                 <input
                   type="password"
-                  className="form-control required"
+                  className="form-control"
                   placeholder="Enter password"
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary btn-lg btn-block mt-3">
+              <div className="form-group">
+                <label>Phone No.</label>
+                <input
+                  type="Phone"
+                  className="form-control"
+                  placeholder="Enter contact no"
+                  onChange={(event) => setPhone(event.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Choose your Profession</label>
+                <Form.Control
+                  as="select"
+                  onChange={(event) => setProfession(event.target.value)}
+                >
+                  <option>Select</option>
+                  <option>Artist</option>
+                  <option>Photographer</option>
+                  <option>Team Player</option>
+                  <option>Full Stack</option>
+                </Form.Control>
+              </div>
+
+              <button type="submit" className="btn btn-dark btn-lg btn-block">
                 Register
               </button>
-              <p onClick={handleClick} className="forgot-password text-right mt-3 cursor-pointer">
+              <p onClick={handleClick} className="forgot-password text-right">
                 Already registered{" "}log in?
                 
               </p>
@@ -83,12 +104,8 @@ const Registration = () => {
                 </Alert>
               )}
             </form>
-          ) : (
-            <Login />
-          )}
-        </div>
     </div>
   );
 };
 
-export default Registration;
+export default AddTask;

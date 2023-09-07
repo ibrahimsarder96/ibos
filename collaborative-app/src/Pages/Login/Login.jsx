@@ -1,7 +1,7 @@
 import { Alert } from 'bootstrap';
 import React, { useState } from 'react';
 import Home from '../Home/Home';
-
+import './Login.css';
 const Login = () => {
   const [emaillog, setEmaillog] = useState(" ");
   const [passwordlog, setPasswordlog] = useState(" ");
@@ -29,29 +29,29 @@ const Login = () => {
   return (
     <div>
       {home ? (
-        <form onSubmit={handleLogin}>
+        <form className='shadow-lg p-5 rounded' onSubmit={handleLogin}>
           <h3>LogIn</h3>
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-              onChange={(event) => setEmaillog(event.target.value)}
-            />
-          </div>
+          <div className="form-group mt-3 text-start">
+                <label>Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter email"
+                  onChange={(event) => setEmaillog(event.target.value)}
+                />
+              </div>
 
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              onChange={(event) => setPasswordlog(event.target.value)}
-            />
-          </div>
+              <div className="form-group mt-3 text-start">
+                <label>Password</label>
+                <input
+                  type="password"
+                  className="form-control required"
+                  placeholder="Enter password"
+                  onChange={(event) => setPasswordlog(event.target.value)}
+                />
+              </div>
 
-          <button type="submit" className="btn btn-dark btn-lg btn-block">
+          <button type="submit" className="btn btn-primary mt-3 btn-lg btn-block">
             Login
           </button>
 
